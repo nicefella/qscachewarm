@@ -1,7 +1,7 @@
 # qscachewarm
 Qlik Sense Cache Warming Script
 
-![alt text](https://github.com/nicefella/qscachewarm/cw.png "Qlik Sense Cache Warming Preload Script")
+![alt text](https://github.com/nicefella/qscachewarm/blob/master/cw.png "Qlik Sense Cache Warming Preload Script")
 
 ### About
 This script connects to a Qlik Sense Engine instance as an authorized user and loops over all the apps, preload them and also loop their containing visualization objects to cache them in RAM.
