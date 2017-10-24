@@ -1,5 +1,5 @@
 var config = {
-	hostName: "{QLIK SENSE HOST NAME}",
+	hostName: "{QLIK SENSE HOSTNAME}",
 	port: 443,
 	prefix: "{VIRTUAL PROXY PREFIX USING FORM AUTHENTICATION}",
 	userDirectory : "{CONNECTING USER DIRECTORY}",
