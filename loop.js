@@ -14,11 +14,12 @@ const serverName = settings.hostName;
 const prefix = settings.prefix;
 const userDirectory = settings.userDirectory;
 const userId = settings.userId;
-
-const engineUrl = 'wss://' + serverName + '/' + prefix + '/app/engineData';
+const protocolWs = settings.isSecure ? 'wss' : 'ws';
+const protocolHttp = settings.isSecure ? 'https' : 'http';
+//const engineUrl = protocolWs + '://' + serverName + '/' + prefix + '/app/engineData';
+const engineUrl =  'wss://' + serverName + '/' + prefix + '/app/engineData';
 const hostname = serverName;
 const port = settings.port;
-
 
 const senseUtilities = require('enigma.js/sense-utilities');
 const timeOutSecond = settings.timeOutSecond;
@@ -40,6 +41,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 prepareTerminal();
 writeDimAtPosition(66, 6, "Initializing...");
 
+//r.get(protocolHttp + '://' + serverName + '/'+prefix+'/hub/', function(error, response, body) {
 r.get('https://' + serverName + '/'+prefix+'/hub/', function(error, response, body) {
     r.post({
             url: response.request.uri.href,
@@ -72,8 +74,10 @@ r.get('https://' + serverName + '/'+prefix+'/hub/', function(error, response, bo
                     charm.foreground('yellow');
                     writeDimAtPosition(66, 6, "Caching...       ");
                         return global.getDocList().then((applist) => {
-                            return Promise.all(applist.map(function(doc) {
+                            var applistused = settings.singleAppId.length != 0 ? [{qDocId: settings.singleAppId, qDocName: "SingleApp"}] : applist;
+                            return Promise.all(applistused.map(function(doc) {
                                 var session = enigma.create(enigmaInstance(config, doc.qDocId, sessioncookie));
+
                                 return session.open()
                                     .then(function(global) {
                                         var a = global.openDoc(doc.qDocId, '', '', '', false);

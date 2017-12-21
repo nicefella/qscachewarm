@@ -1,25 +1,12 @@
-/*
 var config = {
-	hostName: "192.168.100.133",
+	hostName: "{QLIK SENSE HOSTNAME}",
 	port: 443,
-	prefix: "form",
-	userDirectory : "NURCANY",
-	userId : "qsuser",
-	password: "123456",
-	timeOutSecond: 120
+	prefix: "{VIRTUAL PROXY PREFIX USING FORM AUTHENTICATION}",
+	userDirectory : "{CONNECTING USER DIRECTORY}",
+	userId : "{CONNECTING USER ID}",
+	password: "{CONNECTING USER PASSWORD}",
+	timeOutSecond: 120,
+	singleAppId: ""
 }
-*/
-
-var config = {
-	hostName: "ismailby",
-	port: 443,
-	prefix: "form",
-	userDirectory : "BISTRATEJIK",
-	userId : "ismailbaygin",
-	password: "Essmar11",
-	timeOutSecond: 120
-}
-
-
 
 module.exports = config;
