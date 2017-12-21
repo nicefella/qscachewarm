@@ -5,6 +5,7 @@ var config = {
 	userDirectory : "{CONNECTING USER DIRECTORY}",
 	userId : "{CONNECTING USER ID}",
 	password: "{CONNECTING USER PASSWORD}",
+<<<<<<< HEAD
 	timeOutSecond: 120,
 	singleAppId: ""
 }
